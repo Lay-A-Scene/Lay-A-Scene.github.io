@@ -229,16 +229,19 @@ figure {
 
 
 </head><body><div class="topnav" id="myTopnav">
-  <a href="https://www.nvidia.com/"><img width="100%" src="./files/nvidia.svg"></a>
-  <a href="https://www.nvidia.com/en-us/research/"><strong>NVIDIA Research</strong></a>
+    <figure style="width: 100%;">
+        <a href="./files/Bar-Ilan_University_logo.svg.png">
+            <img width="100%" src="./files/Bar-Ilan_University_logo.svg.png">
+        </a>
+    </figure>
 </div>
 
 <!-- End : Google Analytics Code -->
 <script type="text/javascript" src="./files/style/hidebib.js"></script>
 <link href="./files/style/css" rel="stylesheet" type="text/css">
 
-    <title>Point-Cloud Completion with Pretrained Text-to-image Diffusion Models</title>
-    <meta property="og:description" content="-Cloud Completion with Pretrained Text-to-image Diffusion Models">
+    <title>Lay-A-Scene: Personalized 3D Object Arrangement Using Text-to-Image Priors</title>
+    <meta property="og:description" content="-Given a set of 3D objects, the task is to find a plausible arrangement of these objects in a scene.">
     <link href="./files/style/css2" rel="stylesheet">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -256,36 +259,39 @@ figure {
  
 <div class="container">
     <div class="paper-title">
-      <h1>Point-Cloud Completion with Pretrained Text-to-image Diffusion Models</h1>
+      <h1>Lay-A-Scene: Personalized 3D Object Arrangement Using Text-to-Image Priors</h1>
     </div>
 
     
     <div id="authors">
         <div class="author-row">
-            <div class="col-3 text-center"><a href="https://ykasten.github.io/">Yoni Kasten</a><sup>1</sup></div>
-            <div class="col-3 text-center"><a href="https://ohad204.github.io/ohadrahamim.github.io/">Ohad Rahamim</a><sup>2</sup></div>
+            <div class="col-3 text-center"><a href="https://ohad204.github.io/ohadrahamim.github.io/">Ohad Rahamim</a><sup>1</sup></div>
+            <div class="col-3 text-center"><a href="">Hilit Segev</a><sup>1</sup></div>
+            <div class="col-3 text-center"><a href="https://idanachituve.github.io/">Idan Achituve</a><sup>1</sup></div>
+            <div class="col-3 text-center"><a href="https://ykasten.github.io/">Yuval Atzmon</a><sup>2</sup></div>
+            <div class="col-3 text-center"><a href="https://ykasten.github.io/">Yoni Kasten</a><sup>2</sup></div>
             <div class="col-3 text-center"><a href="https://research.nvidia.com/person/gal-chechik">Gal Chechik</a><sup>1,2</sup></div>
         </div>
 
         <div class="affil-row">
-            <div class="venue text-center"><sup>1</sup>NVIDIA</div>
+            <div class="venue text-center"><sup>1</sup>Bar-Ilan University</div>
         </div>
         <div class="affil-row">
-            <div class="venue text-center"><sup>2</sup>Bar-Ilan University</div>
+            <div class="venue text-center"><sup>2</sup>NVIDIA</div>
         </div>
-        <div class="affil-row">
-            <div class="venue text-center"><b>NeurIPS 2023</b></div>
-        </div>
+        <!-- <div class="affil-row">
+            <div class="venue text-center"><b>NeurIPS 2024</b></div>
+        </div> -->
 
         <div style="clear: both">
             <div class="paper-btn-parent">
-            <a class="supp-btn" href="https://arxiv.org/pdf/2306.10533.pdf">
+            <a class="supp-btn" href="">
                 <span class="material-icons">  </span> 
                  Paper
             </a>
-            <a class="supp-btn" href="https://github.com/NVlabs/sds-complete">
+            <a class="supp-btn" href="">
                 <span class="material-icons">  </span> 
-                  Data 
+                  Code (soon) 
             </a>
         </div></div>
     </div>
@@ -296,7 +302,7 @@ figure {
                     <img width="100%" src="./files/teaser.png">
                 </a>
                 <p class="caption" style="margin-bottom: 1px;">
-                    We present SDS-Complete: A test-time optimization method for completing point clouds captured by depth sensors, leveraging pre-trained text-to-image diffusion model. The inputs to our method are an incomplete point cloud (blue) along with a textual description of the object. The output is a complete surface (gray) that is consistent with the input points (blue). The method works well on a variety of objects captured by real-world point-cloud sensors.
+                    We present Lay-A-Scene: method for addressing the 3D-object-Arrangement task. The key idea is that since the objects already exist, we can use the text-to-image models to generate a single image that can serve as a layout to find the arrangement of the objects.
                 </p>
             </figure>
     </section>
@@ -305,7 +311,14 @@ figure {
         <h2>Abstract</h2>
         <hr>
         <p>
-            Point-cloud data collected in real-world applications are often incomplete, because objects are being observed from specific viewpoints, which only capture one perspective. Data can also be incomplete due to occlusion and low-resolution sampling. Existing approaches to completion rely on training models with datasets of predefined objects to guide the completion of point clouds. Unfortunately, these approaches fail to generalize when tested on objects or real-world setups that are poorly represented in their training set. Here, we leverage recent advances in text-guided 3D shape generation, showing how to use image priors for generating 3D objects. We describe an approach called SDS-Complete that uses a pre-trained text-to-image diffusion model and leverages the text semantics of a given incomplete point cloud of an object, to obtain a complete surface representation. SDS-Complete can complete a variety of objects using test-time optimization without expensive collection of 3D data. We evaluate SDS-Complete on a collection of incomplete scanned objects, captured by real-world depth sensors and LiDAR scanners. We find that it effectively reconstructs objects that are absent from common datasets, reducing Chamfer loss by about 50% on average compared with current methods.
+            Generating 3D visual scenes is at the forefront of visual generative AI, but current 3D generation techniques struggle 
+            with generating scenes with multiple high-resolution objects. Here we introduce Lay-A-Scene, which solves a task of Open-set 3D Object Arrangement, 
+            effectively arranging unseen objects. Given a set of 3D objects, the task is to find a plausible arrangement of these objects in a scene. 
+            We address this task by leveraging pre-trained text-to-image models. 
+            We personalize the model and explain how to generate images of a scene that contains multiple predefined objects without neglect. 
+            Then, we describe how to infer the 3D poses and arrangement of objects from a 2D generated image by finding a consistent projection of objects 
+            onto the 2D scene. We evaluate the quality of Lay-A-Scene using 3D objects from Objaverse and human raters and find that it often generates
+             coherent and feasible 3D object arrangements. 
         </p>
     </section>
 
@@ -324,40 +337,46 @@ figure {
             <div style="width: 100%;">
                 <br><br>
                 <p>
-                    Here, we address the challenge of completing 3D objects in the wild from real-world partial point
-                    clouds. This is achieved by leveraging priors about object shapes that are encoded in pretrained
-                    text-to-image diffusion models. Our key idea is that since text-to-image diffusion models were trained
-                    on a vast number of diverse objects, they contain a strong prior about the shape and texture of objects,
-                    and that prior can be used for completing object missing parts. For example, given a partial point
-                    cloud, knowing that it corresponds to a chair can guide the completion process, because objects from
-                    this class are expected to exhibit some types of symmetries and parts that are captured in 2D images.
+                    In many cases, one may have access to existing models of 3D objects and is only interested in finding plausible arrangements 
+                    of given objects. This setup, which we call here Openset-3D-Arrange, 
+                    can be viewed as a 3D parallel of the personalization problem in image generation. 
+                    It can also be viewed as a complementing problem to scene-generation papers, which generate objects in a scene given a layout. 
+                    3D-Arrange is about the reverse problem -- find a plausible layout for given 3D objects.  
+                    3D object arrangement has been previously addressed by training models using a specific training dataset. 
+                    The question remains if this problem can be solved by distilling information from current text-to-image models.
                 </p> 
 
                 <p>
-                    A similar intuition has been used for generating 3D objects “from scratch" (DreamFusion).
-                    DreamFusion uses the SDS loss, which measures agreement between 2D model prior and renderings
-                    of the 3D shape. Unfortunately, naively applying the SDS loss to our problem of point cloud
-                    completion fails. This is because, as we show below, it does not combine well the hard constraints
-                    implied by the points collected from the sensor with the prior embedded in the diffusion model.
+                    Here we describe Lay-A-Scene, a method for addressing the 3D-object-Arrangement task. The key idea is that since the 
+                    objects already exist, we can use the text-to-image models to generate a single image that can serve as a layout to 
+                    find the arrangement of the objects. Instead of multiple inferences of those models to generate a full scene, 
+                    we generate an image with a plausible layout using a single forward pass. Later, we match each object and its 
+                    appearance in the generated image to infer the object's position. Those positions with the objects create a full scene.
+                </p>
+
+                <p>
+                    Lay-A-Scene approach has several main advantages. 
+                    Unlike other 3D-arrange methods it can handle new objects through 
+                    personalization without retraining the foundation model. 
+                    Unlike graph-based 3D arrangement methods, which expect users to provide a set of spatial relations, 
+                    Lay-A-Scene generates the scene layout based on the prior learned by text-to-image diffusion models.
                 </p>
                 
-                                <p>
-                                    To address these challenges, we introduce SDS-Complete: a method to complete a given partial
-point cloud using several considerations. First, we use a Signed Distance Function (SDF) surface
-representation, and constrain the zero level set of the SDF to go through the input
-points. Second, we use information about areas with no collected points, to rule out object parts
-in these areas. Third, we use a prior about camera position and orientation and a curriculum of
-out-painting when sampling camera positions. Finally, we use the SDS loss to incorporate prior
-guided by the class of an object on the rendered images.
-                </p>   
                 
                 <p>
-                    We demonstrate that SDS-Complete generates completions for various objects with different shape
-types from two real-world datasets: the Redwood dataset, which contains various incomplete
-real-world depth camera partial scans, and the KITTI dataset, which contains object LiDAR
-scans from driving scenarios. In both cases, SDS-Complete outperforms the current state-of-the-art
-methods.
-                </p>
+                    Several key challenges emerge when taking this approach approach. 
+                    First, how could we infer 3D position of given objects from generated images? 
+                    distorted or colliding. 
+                    We show how to add prior information about physical considerations as soft constraints to the Prospective-n-Points optimization to 
+                    generate scenes that are more coherent and natural. We call this approach Side-information-PNP,
+                    and find that it greatly improves the generated scenes.  
+                    We also note that Text-to-image models often suffer from entity neglect, 
+                    where generated images do not contain all entities mentioned in their prompts. 
+                    This problem becomes more severe when objects are unusual or incoherent, 
+                    and when the number of objects grows.
+                    In our setting, the PnP procedure can be used to filter out images with entity neglect.  
+                </p>   
+                
             </div>
         </div>
     </section>
@@ -368,23 +387,18 @@ methods.
         <hr>
 
         <figure style="width: 100%;">
-            <video width="90%" controls="" muted="" loop="" autoplay="">
-                <source src="./files/SDS-Complete_pipeline_video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <a href="./files/workflow_22_5.png">
+                <img width="100%" src="./files/workflow_22_5.png">
+            </a>
             <p class="caption" style="margin-bottom: 1px;">
-                <div class="mathjax">
-    
-
-    SDS-loss optimizes two neural functions: A signed distance function \(f_\theta\) representing the surface and a volumetric coloring function \(\mathbf{c}_\varphi\). Together, \((\mathbf{c}_\varphi,f_\theta)\) define a radiance field, which is used to render novel image views \(Im_0,\ldots Im_n\). The SDS loss is applied to the renderings to encourage them to be compatible with the input text \(\mathbf{y}\). Three sensor-compatibility losses verify that the reconstructed surface is compatible with the sensor observations in various aspects. </p>
-</div>
+                Lay-A-Scene consists of two phases. First, given objects are used to personalize a text-to-image model and a scene image is generated. In the second phase, we find a  transformation $T_i$ for each 3D object $i$ to match the 2D arrangement presented in the generated scene image. $T_i$ is found using our \ourpnp{}, by matching the DIFT representation of objects and scene image.
             </p>
         </figure>
 
         <h2>Results</h2>
         <hr>
-        Our primary goal is to evaluate our SDS-Complete and baseline method in real-world scenarios. This is in contrast to evaluating test splits from the synthetic datasets that were used for training the baseline methods. To achieve relevant evaluation datasets, we based the evaluation on partial real-world point clouds obtained from depth images and LiDAR scans.
-        <h2>Redwood dataset</h2>
+        We evaluate our method and baselines on 3D furniture meshes taken from the Objaverse dataset, a repository featuring over 800K high-quality 3D assets. 
+        <h2>Objaverse dataset</h2>
         <hr>
         
         <section id="teaser">
